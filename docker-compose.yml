@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  whisper:
+    build: .
+    container_name: whisper-container
+    volumes:
+      - ./audio:/app/audio  # Cambia "audio" por la carpeta donde tienes tus archivos de audio
+    environment:
+      - LANG=C.UTF-8
+    ports:
+      - "8080:8080"  # Opcional, solo si deseas exponer algún puerto
+    stdin_open: true
+    tty: true
+    command: bash  # Ejecuta el contenedor en modo interactivo con bash
